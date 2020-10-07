@@ -1,0 +1,29 @@
+version: '3.6'
+services:
+  db:
+    image: kartoza/postgis:11.5-2.8
+    restart: always
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+      - POSTGRES_DB=peaky
+      - POSTGRES_USER=user001
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+  peaks-service:
+    container_name: peaks-backend-services
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+volumes:
+  postgres_data:
+
+
+
+
+

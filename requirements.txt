@@ -1,0 +1,9 @@
+psycopg2
+django
+django-axes
+djangorestframework
+markdown
+django-filter
+geoip2
+django-rest-swagger
+
